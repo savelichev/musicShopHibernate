@@ -38,7 +38,12 @@ public class SongController {
 
 	@RequestMapping(value = "/saveSong", method = RequestMethod.POST)
 	public ModelAndView saveSong(@ModelAttribute Song song) {
-		songDAO.addSong(song);
+
+		if (song.getSongId() > 0) {
+			songDAO.updateSong(song);
+		} else {
+			songDAO.addSong(song);
+		}
 
 		return new ModelAndView("redirect:/listSong");
 	}
