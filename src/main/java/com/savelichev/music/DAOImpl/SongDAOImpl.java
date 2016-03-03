@@ -63,7 +63,6 @@ public class SongDAOImpl implements SongDAO {
 		return song;
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public List<Song> getAllSongs() {
 		Session session = null;
@@ -83,12 +82,15 @@ public class SongDAOImpl implements SongDAO {
 	}
 
 	@Override
-	public void deleteSong(Song song) {
+	public void deleteSongById(int songId) {
 		Session session = null;
+		Song tempSong = new Song();
+		tempSong.setSongId(songId);
+
 		try {
 			session = HibernateUtil.getSessionFactory().openSession();
 			session.beginTransaction();
-			session.delete(song);
+			session.delete(tempSong);
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -68,7 +68,6 @@ public class ArtistDAOImpl implements ArtistDAO {
 		return artist;
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public List<Artist> getAllArtists() {
 		Session session = null;

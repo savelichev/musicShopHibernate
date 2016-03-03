@@ -69,7 +69,6 @@ public class BandDAOImpl implements BandDAO {
 		return band;
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public List<Band> getAllBands() {
 		Session session = null;

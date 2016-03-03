@@ -43,12 +43,12 @@ public class SongController {
 		return new ModelAndView("redirect:/listSong");
 	}
 
-	// @RequestMapping(value = "/deleteSong", method = RequestMethod.GET)
-	// public ModelAndView deleteSong(HttpServletRequest request) {
-	// int songId = Integer.parseInt(request.getParameter("id"));
-	// songDAO.deleteSong();
-	// return new ModelAndView("redirect:/listSong");
-	// }
+	@RequestMapping(value = "/deleteSong", method = RequestMethod.GET)
+	public ModelAndView deleteSong(HttpServletRequest request) {
+		int songId = Integer.parseInt(request.getParameter("id"));
+		songDAO.deleteSongById(songId);
+		return new ModelAndView("redirect:/listSong");
+	}
 
 	@RequestMapping(value = "/editSong", method = RequestMethod.GET)
 	public ModelAndView editSong(HttpServletRequest request) {

@@ -10,7 +10,7 @@ public interface SongDAO {
 
 	public void updateSong(Song song);
 
-	public void deleteSong(Song song);
+	public void deleteSongById(int songId);
 
 	public Song getSongById(int songId);
 
